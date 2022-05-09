@@ -19,9 +19,10 @@
       include("dashboard.php");
     }else {
       if(isset($_POST['email']) && isset($_POST['password'])){
-        print_r($_POST);
+       
         $user= new User();
-        $check_query_email_password="";
+        $check_query_email_password=$user->selectUser($_POST);
+        print_r($check_query_email_password);
       }
       ?>
 <form  method="POST" action="" autocomplete="off">
